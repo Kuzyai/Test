@@ -21,12 +21,17 @@ int CountElements(string[] array)
 	return count;
 }
 
-string[] MainTask(string[] array, int count)
+string[] MainTask(string[] array, int newLen)
 {
+	int len = array.Length;
 	int index = 0;
-	string[] outputArray = new string[count];
-	for (int i = 0; i < array.Length; i++)
-		if (array[i].Length <= 3) outputArray[index++] = array[i];
+	string[] outputArray = new string[newLen];
+	for (int i = 0; i < len; i++)
+		if (array[i].Length <= 3)
+		{
+			outputArray[index] = array[i];
+			index = index + 1;
+		}
 	return outputArray;
 }
 
@@ -34,6 +39,6 @@ Console.Write("Введите длину массива: ");
 int size = Convert.ToInt32(Console.ReadLine());
 string[] inputArray = CreateArray(size);
 Words(inputArray);
-int count = CountElements(inputArray);
-Console.WriteLine(count);
-string[] outputArray = MainTask(inputArray, count);
+int newLen = CountElements(inputArray);
+Console.WriteLine(newLen);
+string[] outputArray = MainTask(inputArray, newLen);
