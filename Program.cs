@@ -35,10 +35,19 @@ string[] MainTask(string[] array, int newLen)
 	return outputArray;
 }
 
+string Print(string[] array)
+{
+	string words = string.Empty;
+	for (int i = 0; i < array.Length; i++)
+		words += $"{array[i]}, ";
+	return words;
+}
+
 Console.Write("Введите длину массива: ");
 int size = Convert.ToInt32(Console.ReadLine());
 string[] inputArray = CreateArray(size);
 Words(inputArray);
 int newLen = CountElements(inputArray);
-Console.WriteLine(newLen);
 string[] outputArray = MainTask(inputArray, newLen);
+Console.WriteLine(Print(inputArray));
+Console.WriteLine(Print(outputArray));
