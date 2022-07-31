@@ -1,4 +1,4 @@
-﻿string[] CreateArray(int size)
+﻿/* string[] CreateArray(int size)
 {
 	string[] array = new string[size];
 	return array;
@@ -50,4 +50,36 @@ Words(inputArray);
 int newLen = CountElements(inputArray);
 string[] outputArray = MainTask(inputArray, newLen);
 Console.WriteLine(Print(inputArray));
-Console.WriteLine(Print(outputArray));
+Console.WriteLine(Print(outputArray)); */
+
+using System;
+using System.Text;
+
+string[] CreateArray(int size)
+{
+	string[] array = new string[size];
+	return array;
+}
+
+void GenerateArray(string[] array)
+{
+	Random rnd = new Random();
+	for (int i = 0; i < array.Length; i++)
+	{
+		char[] ch = array[i].ToCharArray();
+		StringBuilder sb = new StringBuilder();
+		for (int j = 0; i < ch.Length; j++)
+		{
+			ch[j] = Convert.ToChar(rnd.Next('a', 'a' + 27));
+		}
+		sb.Append(ch);
+		array[i] = sb.ToString();
+		Console.Write($"{array[i]} ");
+	}
+}
+
+Console.Write("Введите длину массива: ");
+int size = Convert.ToInt32(Console.ReadLine());
+string[] inputArray = CreateArray(size);
+GenerateArray(inputArray);
+foreach (var i in inputArray) Console.WriteLine(i);
