@@ -8,12 +8,8 @@ void GenerateArray(string[] array)
 {
 	Random rnd = new Random();
 	for (int i = 0; i < array.Length; i++)
-	{
-		string s = string.Empty;
 		for (int j = 0; j < rnd.Next(1, 10); j++)
-			s += Convert.ToChar(rnd.Next('a', 'z' + 1));
-		array[i] = s;
-	}
+			array[i] += Convert.ToChar(rnd.Next('a', 'z' + 1));
 }
 
 int CountElements(string[] array)
